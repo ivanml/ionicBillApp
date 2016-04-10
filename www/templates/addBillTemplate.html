@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+      <input type="text" placeholder=" Owner" ng-model="data.owner">
+      <p class="assertive" ng-show="missingOwner">* Owner is required</p>
+      </br>
+      <input type="number" placeholder=" Amount" ng-model="data.amount">
+      <p class="assertive" ng-show="missingAmount">* Amount is required</p>
+      <br>
+      <input type="text" placeholder=" Description (optional)" ng-model="data.text">
+</body>
+</html>

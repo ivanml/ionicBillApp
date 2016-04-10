@@ -1,0 +1,9 @@
+.no-lr-border {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.completed {
+  color: grey;
+  text-decoration: line-through;
+}
