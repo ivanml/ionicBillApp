@@ -7,3 +7,8 @@
   color: grey;
   text-decoration: line-through;
 }
+
+.padding-lr {
+  padding-left: 20px;
+  padding-right: 20px;
+}

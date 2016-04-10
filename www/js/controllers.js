@@ -54,7 +54,7 @@ angular.module('app.controllers', [])
       $scope.missingAmount = false;
       $ionicPopup.show({
         templateUrl: 'templates/editBillTemplate.html',
-        title: 'New Bill',
+        title: 'Edit Bill',
         //subTitle: 'Owner and Amount is required',
         scope: $scope,
         buttons: [
