@@ -1,31 +1,28 @@
 <ion-view title="Bills" id="bill-page">
 
   <ion-content overflow-scroll="true" padding="true" class="has-header">
-    <form class="list">
-      <ion-toggle toggle-class="toggle-positive" name="allBillToggle">Show All Bills</ion-toggle>
-    </form>
-    <button id="bills-button5" class="button button-positive  button-block icon ion-compose" ng-click="addBill()">
+    <button id="bills-button5" class="button button-positive button-block icon ion-compose" ng-click="addBill()">
       Add Bill
     </button>
+    <form class="list">
+      <ion-toggle toggle-class="toggle-positive" name="allBillToggle" ng-click="toggleAllBill()">Show All Bills</ion-toggle>
+    </form>
 
-    <h2 class="dark">Pending Bills</h2>
+    <h2 class="dark">{{ allBills ? 'All Bills' : 'Pending Bills' }}</h2>
     <ion-list>
-      <ion-item ng-repeat="bill in bills" class="no-lr-border item-icon-right"
-                ng-class="{completed: bill.completed}">
-        <ion-label>
+      <ion-item ng-repeat="bill in bills" class="no-lr-border item-icon-right" ng-show="allBills || !bill.completed">
+        <p>
           <span class="positive">{{bill.owner}}</span>
-        </ion-label>
-        <ion-label>
-          {{bill.text}}
-        </ion-label>
-        <ion-label ng-class="{balanced: (bill.amount > 0), assertive: (bill.amount < 0)}">
-          $ {{bill.amount}}
-        </ion-label>
+          <span ng-class="{balanced: (bill.amount > 0), assertive: (bill.amount < 0)}" class="text-float-right">
+            $ {{bill.amount}}
+          </span>
+        </p>
+        <p>{{bill.text}}</p>
         <i class="icon ion-ios-arrow-left"></i>
-        <ion-option-button class="button-assertive padding-lr" ng-click="bills.splice($index, 1)">
+        <ion-option-button class="button-assertive" ng-click="bills.splice($index, 1)">
           Delete
         </ion-option-button>
-        <ion-option-button class="button-energized padding-lr" ng-click="editBill(bill, $index)">
+        <ion-option-button class="button-energized" ng-click="editBill(bill, $index)">
           Edit
         </ion-option-button>
       </ion-item>

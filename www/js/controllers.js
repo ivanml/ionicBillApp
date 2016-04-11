@@ -9,6 +9,12 @@ angular.module('app.controllers', [])
         {owner: "Steve", text: "Handy for March 2016", amount: 87.00, completed: true},
       ];
 
+    $scope.allBills = false;
+
+    $scope.toggleAllBill = function() {
+      $scope.allBills = !$scope.allBills;
+    };
+
     $scope.addBill = function() {
       $scope.data = {};
       $scope.missingOwner = false;
