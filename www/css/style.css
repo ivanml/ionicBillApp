@@ -17,3 +17,14 @@
   float: right;
   padding-right: 25px;
 }
+
+.bar-subheader
+{
+  height: 116px !important;
+  border: none;
+
+}
+
+.has-subheader {
+  top: 170px !important;
+}

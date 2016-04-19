@@ -7,6 +7,14 @@ angular.module('app.controllers', [])
         {owner: "Ivan", text: "Utility for Jan 16", amount: -50.5, completed: false},
         {owner: "John", text: "Rent for Newport Management", amount: 1070, completed: false},
         {owner: "Steve", text: "Handy for March 2016", amount: 87.00, completed: true},
+        {owner: "Lucia", text: "Dinner at 15 East", amount: 100, completed: false},
+        {owner: "Ivan", text: "Utility for Jan 16", amount: -50.5, completed: false},
+        {owner: "John", text: "Rent for Newport Management", amount: 1070, completed: false},
+        {owner: "Steve", text: "Handy for March 2016", amount: 87.00, completed: true},
+        {owner: "Lucia", text: "Dinner at 15 East", amount: 100, completed: false},
+        {owner: "Ivan", text: "Utility for Jan 16", amount: -50.5, completed: false},
+        {owner: "John", text: "Rent for Newport Management", amount: 1070, completed: false},
+        {owner: "Steve", text: "Handy for March 2016", amount: 87.00, completed: true}
       ];
 
     $scope.allBills = false;

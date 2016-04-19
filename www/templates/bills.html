@@ -1,14 +1,31 @@
 <ion-view title="Bills" id="bill-page">
 
-  <ion-content overflow-scroll="true" padding="true" class="has-header">
-    <button id="bills-button5" class="button button-positive button-block icon ion-compose" ng-click="addBill()">
-      Add Bill
+  <!--
+  <ion-header-bar class="bar bar-subheader">
+    <button id="bills-button5" class="button button-positive button-small icon ion-compose text-float-right" ng-click="addBill()">
+      Add
     </button>
-    <form class="list">
-      <ion-toggle toggle-class="toggle-positive" name="allBillToggle" ng-click="toggleAllBill()">Show All Bills</ion-toggle>
-    </form>
+
+    <ion-toggle toggle-class="toggle-positive" name="allBillToggle" ng-click="toggleAllBill()">Show All Bills</ion-toggle>
+
 
     <h2 class="dark">{{ allBills ? 'All Bills' : 'Pending Bills' }}</h2>
+  </ion-header-bar>
+  -->
+
+  <ion-header-bar class="bar bar-subheader">
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <input type="text" align="center" ng-model="searchData" placeholder="Search">
+      </label>
+      <button class="button button-small button-positive icon ion-compose" ng-click="addBill()"> Add</button>
+    </div>
+    <div>
+      <ion-toggle toggle-class="toggle-positive" name="allBillToggle" ng-click="toggleAllBill()">Show All Bills</ion-toggle>
+    </div>
+  </ion-header-bar>
+
+  <ion-content overflow-scroll="true" padding="true" class="has-header has-subheader">
     <ion-list>
       <ion-item ng-repeat="bill in bills" class="no-lr-border item-icon-right" ng-show="allBills || !bill.completed">
         <p>
@@ -29,4 +46,3 @@
     </ion-list>
   </ion-content>
 </ion-view>
-
