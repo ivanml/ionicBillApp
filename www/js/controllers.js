@@ -113,3 +113,26 @@ angular.module('app.controllers', [])
     };
 
   })
+
+  .controller('accountCtrl', function($scope, $cordovaTouchID) {
+    $scope.touchIDAuth = function() {
+      $scope.msg0 = "touch ID function called!";
+
+      $cordovaTouchID.checkSupport().then(function() {
+        $scope.msg = "support touch ID!";
+        // success, TouchID supported
+      }, function (error) {
+        console.log(error);
+        $scope.msg = error;
+        //alert(error); // TouchID not supported
+      });
+
+      $cordovaTouchID.authenticate("text").then(function() {
+        $scope.msg = "Auth Succeeded!";
+        //alert("Auth Succeeded!");
+        // success
+      }, function () {
+        // error
+      });
+    }
+  })
