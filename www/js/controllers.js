@@ -1,7 +1,7 @@
 angular.module('app.controllers', [])
 
   .controller('billsCtrl', function($scope, $ionicPopup, $ionicListDelegate) {
-    $scope.bills =
+    var originalBills =
       [
         {owner: "Lucia", text: "Dinner at 15 East", amount: 100, completed: false},
         {owner: "Ivan", text: "Utility for Jan 16", amount: -50.5, completed: false},
@@ -17,7 +17,15 @@ angular.module('app.controllers', [])
         {owner: "Steve", text: "Handy for March 2016", amount: 87.00, completed: true}
       ];
 
+    $scope.bills = JSON.parse(JSON.stringify(originalBills)); // copy
+
     $scope.allBills = false;
+
+    $scope.pullRefresh = function() {
+      $scope.bills = JSON.parse(JSON.stringify(originalBills)); // copy
+      // Stop the ion-refresher from spinning
+      $scope.$broadcast('scroll.refreshComplete');
+    };
 
     $scope.toggleAllBill = function() {
       $scope.allBills = !$scope.allBills;
